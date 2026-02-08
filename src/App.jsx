@@ -25,10 +25,10 @@ function App() {
         <Route path="/proyectos" element={<Proyectos />} />
         <Route path="/encuestas" element={<Encuestas />} />
         <Route path="/analiticas" element={<Analiticas />} />
-        <Route path="/logout" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
         </Route>
 
-        <Route path="/login" element={<Logout />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
   );
 };
