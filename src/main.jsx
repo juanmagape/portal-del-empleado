@@ -5,6 +5,7 @@ import App from './App.jsx'
 import Nav from './components/nav.jsx'
 import SideBar from './components/sidebar.jsx'
 import { BrowserRouter } from 'react-router-dom'
+import 'lineicons/dist/lineicons.css';
 
 createRoot(document.getElementById('root')).render(
   
