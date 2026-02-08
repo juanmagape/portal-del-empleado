@@ -11,6 +11,7 @@ import Encuestas from './components/pages/surveys'
 import Analiticas from './components/pages/analytics'
 import Login from './components/pages/login'
 import ProtectedRoute from './components/pages/protectedroute'
+import Logout from './components/pages/logout'
 
 function App() {
 
@@ -24,9 +25,10 @@ function App() {
         <Route path="/proyectos" element={<Proyectos />} />
         <Route path="/encuestas" element={<Encuestas />} />
         <Route path="/analiticas" element={<Analiticas />} />
+        <Route path="/logout" element={<Login />} />
         </Route>
 
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Logout />} />
       </Routes>
   );
 };
