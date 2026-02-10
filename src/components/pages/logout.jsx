@@ -1,19 +1,24 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import '../../App.css'
 
 function Logout() {
   const [open, setOpen] = useState(true)
+  const navigate = useNavigate();
+
+  function cancel() {
+    navigate(-1);
+  }
+
+  function logout() {
+    localStorage.removeItem("user");
+    navigate("/login", { replace: true });
+  }
 
   return (
     <div>
-      <button
-        onClick={() => setOpen(true)}
-        className="rounded-md bg-white/10 px-2.5 py-1.5 text-sm font-semibold text-white inset-ring inset-ring-white/5 hover:bg-white/20"
-      >
-        Open dialog
-      </button>
       <Dialog open={open} onClose={setOpen} className="relative z-10">
         <DialogBackdrop
           transition
@@ -47,7 +52,7 @@ function Logout() {
               <div className="bg-gray-700/25 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                 <button
                   type="button"
-                  onClick={() => setOpen(false)}
+                  onClick={logout}
                   className="inline-flex w-full justify-center rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white hover:bg-red-400 sm:ml-3 sm:w-auto"
                 >
                   Deactivate
@@ -55,7 +60,7 @@ function Logout() {
                 <button
                   type="button"
                   data-autofocus
-                  onClick={() => setOpen(false)}
+                  onClick={cancel}
                   className="mt-3 inline-flex w-full justify-center rounded-md bg-white/10 px-3 py-2 text-sm font-semibold text-white inset-ring inset-ring-white/5 hover:bg-white/20 sm:mt-0 sm:w-auto"
                 >
                   Cancel
