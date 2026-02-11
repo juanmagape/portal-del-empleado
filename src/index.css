@@ -2,21 +2,22 @@
   font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-nav a {
-  display: block;
-}
-
+/* El menú lateral fijo a la izquierda */
 nav {
-  float: left;
+  position: fixed; /* Se queda quieto a la izquierda */
+  top: 0;
+  left: 0;
+  bottom: 0;
   width: 200px;
-  margin: 0;
+  background-color: #f8f9fa; /* Un gris muy suave para distinguirlo */
   padding: 1em;
   display: flex;
   flex-direction: column;
-  height: 90vh;
-  box-sizing: border-box;
+  z-index: 1000; /* Asegura que esté encima, pero sin molestar al contenido */
+  border-right: 1px solid #ddd;
 }
 
 nav a {
@@ -25,13 +26,19 @@ nav a {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 8px 0;
+  padding: 12px 0; /* Un poco más de espacio */
+}
+
+nav a .big-icon {
+  font-size: 24px;
 }
 
 nav a:last-child {
   margin-top: auto;
 }
 
-nav a .big-icon {
-  font-size: 29px;
+/* Ajuste para el contenido principal para que no se oculte tras el menú */
+body {
+  padding-left: 220px; /* 200px del menú + 20px de espacio */
+  padding-top: 20px;
 }
