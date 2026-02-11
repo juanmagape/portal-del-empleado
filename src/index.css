@@ -5,18 +5,17 @@
   box-sizing: border-box;
 }
 
-/* El menú lateral fijo a la izquierda */
 nav {
-  position: fixed; /* Se queda quieto a la izquierda */
+  position: fixed; 
   top: 0;
   left: 0;
   bottom: 0;
   width: 200px;
-  background-color: #f8f9fa; /* Un gris muy suave para distinguirlo */
+  background-color: #f8f9fa; 
   padding: 1em;
   display: flex;
   flex-direction: column;
-  z-index: 1000; /* Asegura que esté encima, pero sin molestar al contenido */
+  z-index: 1000; 
   border-right: 1px solid #ddd;
 }
 
@@ -26,7 +25,7 @@ nav a {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px 0; /* Un poco más de espacio */
+  padding: 12px 0; 
 }
 
 nav a .big-icon {
@@ -37,8 +36,7 @@ nav a:last-child {
   margin-top: auto;
 }
 
-/* Ajuste para el contenido principal para que no se oculte tras el menú */
 body {
-  padding-left: 220px; /* 200px del menú + 20px de espacio */
+  padding-left: 220px; 
   padding-top: 20px;
 }

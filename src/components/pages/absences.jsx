@@ -19,7 +19,6 @@ const eventosIniciales = [
 function Absences() {
   const [misEventos, setMisEventos] = useState(eventosIniciales);
   
-  // Solo necesitamos controlar la fecha, la vista ya no cambiará
   const [date, setDate] = useState(new Date()); 
 
   const handleSelectSlot = ({ start, end }) => {
@@ -57,11 +56,10 @@ function Absences() {
         selectable={true}
         onSelectSlot={handleSelectSlot}
         
-        // --- CAMBIOS CLAVE ---
-        views={['month']}   // 1. Limitamos las vistas solo a "Mes" (esto quita los botones)
-        defaultView='month' // 2. Vista por defecto
-        date={date}         // 3. Controlamos la fecha
-        onNavigate={onNavigate} // 4. Permitimos navegar entre meses
+        views={['month']} 
+        defaultView='month'
+        date={date}         
+        onNavigate={onNavigate} 
       />
     </div>
   )
