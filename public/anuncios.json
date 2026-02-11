@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "titulo": "Anuncio 1",
+        "descripcion": "Este es el primer anuncio.",
+        "fecha": "2024-06-01"
+    },
+    {
+        "id": 2,
+        "titulo": "Anuncio 2",
+        "descripcion": "Este es el segundo anuncio.",
+        "fecha": "2024-06-02"
+    },
+    {
+        "id": 3,
+        "titulo": "Anuncio 3",
+        "descripcion": "Este es el tercer anuncio.",
+        "fecha": "2024-06-03"
+    },
+        {
+        "id": 4,
+        "titulo": "Anuncio 4",
+        "descripcion": "Este es el cuarto anuncio.",
+        "fecha": "2024-06-04"
+    }
+]

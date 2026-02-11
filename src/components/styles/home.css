@@ -1,0 +1,23 @@
+.anuncios {
+    display: flex;
+    height: 300px; 
+    width: 700px;
+    flex-direction: column;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.container-anuncios {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px; 
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+
+.fecha-texto {
+    margin-top: auto;
+}
