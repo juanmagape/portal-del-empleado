@@ -22,9 +22,10 @@ function Documents() {
     <>
 
       <div className="documentos-container">
-      <h1>Documentos</h1>
+        <h1>Nóminas</h1>
+
         {documentos
-        .filter(doc => doc.tipoDoc === 'docs')
+        .filter(doc => doc.tipoDoc === 'nominas')
         .map((doc, index) => (
           <div key={index}> 
           <h2>{doc.tituloDoc}</h2> 
@@ -45,10 +46,9 @@ function Documents() {
       </div>
 
       <div className="documentos-container">
-        <h1>Nóminas</h1>
-
+      <h1>Documentos</h1>
         {documentos
-        .filter(doc => doc.tipoDoc === 'nominas')
+        .filter(doc => doc.tipoDoc === 'docs')
         .map((doc, index) => (
           <div key={index}> 
           <h2>{doc.tituloDoc}</h2> 
