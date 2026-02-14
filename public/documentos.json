@@ -1,18 +1,28 @@
 [
     {
         "tituloDoc": "asd1",
+        "descDoc": "Descripcion de documento 1",
         "linkDoc": "asd1",
         "tipoDoc": "docs"
     },
     {
         "tituloDoc": "asd2",
+        "descDoc": "Descripcion de documento 2",
         "linkDoc": "asd2",
         "tipoDoc": "contratos"
     },
 
     {
         "tituloDoc": "asd3",
+        "descDoc": "Descripcion de documento 3",
         "linkDoc": "asd3",
+        "tipoDoc": "nominas"
+    },
+
+    {
+        "tituloDoc": "asd4",
+        "descDoc": "Descripcion de documento 4",
+        "linkDoc": "asd4",
         "tipoDoc": "nominas"
     }
 ]

@@ -24,36 +24,90 @@ function Documents() {
       <div className="documentos-container">
         <h1>Nóminas</h1>
 
-        {documentos
-        .filter(doc => doc.tipoDoc === 'nominas')
-        .map((doc, index) => (
-          <div key={index}> 
-          <h2>{doc.tituloDoc}</h2> 
-          <a href={doc.linkDoc} target="_blank">Ver documento</a> 
-          </div>))}
+        <table>
+          <thead>
+            <tr>
+              <th className="row">Título</th>
+              <th className="row">Descripción</th>
+              <th className="row">Enlace</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {documentos
+              .filter(doc => doc.tipoDoc === 'nominas')
+              .map((doc, index) => (
+                <tr key={index}>
+                  <td>{doc.tituloDoc}</td>
+                  <td>{doc.descDoc}</td>
+                  <td>
+                    <a href={doc.linkDoc} target="_blank" rel="noopener noreferrer">
+                      Ver documento
+                    </a>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
       </div>
 
       <div className="documentos-container">
         <h1>Contratos</h1>
 
-        {documentos
-        .filter(doc => doc.tipoDoc === 'contratos')
-        .map((doc, index) => (
-          <div key={index}> 
-          <h2>{doc.tituloDoc}</h2> 
-          <a href={doc.linkDoc} target="_blank">Ver documento</a> 
-          </div>))}
+        <table>
+          <thead>
+            <tr>
+              <th className="row">Título</th>
+              <th className="row">Descripción</th>
+              <th className="row">Enlace</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {documentos
+              .filter(doc => doc.tipoDoc === 'contratos')
+              .map((doc, index) => (
+                <tr key={index}>
+                  <td>{doc.tituloDoc}</td>
+                  <td>{doc.descDoc}</td>
+                  <td>
+                    <a href={doc.linkDoc} target="_blank" rel="noopener noreferrer">
+                      Ver documento
+                    </a>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
       </div>
 
       <div className="documentos-container">
       <h1>Documentos</h1>
-        {documentos
-        .filter(doc => doc.tipoDoc === 'docs')
-        .map((doc, index) => (
-          <div key={index}> 
-          <h2>{doc.tituloDoc}</h2> 
-          <a href={doc.linkDoc} target="_blank">Ver documento</a> 
-          </div>))}
+        <table>
+          <thead>
+            <tr>
+              <th className="row">Título</th>
+              <th className="row">Descripción</th>
+              <th className="row">Enlace</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {documentos
+              .filter(doc => doc.tipoDoc === 'docs')
+              .map((doc, index) => (
+                <tr key={index}>
+                  <td>{doc.tituloDoc}</td>
+                  <td>{doc.descDoc}</td>
+                  <td>
+                    <a href={doc.linkDoc} target="_blank" rel="noopener noreferrer">
+                      Ver documento
+                    </a>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
       </div>
     </>
   )
