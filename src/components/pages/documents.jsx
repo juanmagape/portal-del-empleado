@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import '../../App.css'
 
 function Documents() {
   const [documentos, setDocumentos ] = useState([])
@@ -19,23 +20,40 @@ function Documents() {
 
   return (
     <>
-      <h1>Documentos</h1>
 
-      <div>
-        {documentos.map((doc, index) => (
+      <div className="documentos-container">
+      <h1>Documentos</h1>
+        {documentos
+        .filter(doc => doc.tipoDoc === 'docs')
+        .map((doc, index) => (
           <div key={index}> 
           <h2>{doc.tituloDoc}</h2> 
-          <p>{doc.tipoDoc}</p> 
-          <a href={doc.linkDoc} target="_blank" rel="noopener noreferrer">Ver documento</a> 
+          <a href={doc.linkDoc} target="_blank">Ver documento</a> 
           </div>))}
       </div>
 
-      <div>
-        Nóminas
+      <div className="documentos-container">
+        <h1>Contratos</h1>
+
+        {documentos
+        .filter(doc => doc.tipoDoc === 'contratos')
+        .map((doc, index) => (
+          <div key={index}> 
+          <h2>{doc.tituloDoc}</h2> 
+          <a href={doc.linkDoc} target="_blank">Ver documento</a> 
+          </div>))}
       </div>
 
-      <div>
-        Otros
+      <div className="documentos-container">
+        <h1>Nóminas</h1>
+
+        {documentos
+        .filter(doc => doc.tipoDoc === 'nominas')
+        .map((doc, index) => (
+          <div key={index}> 
+          <h2>{doc.tituloDoc}</h2> 
+          <a href={doc.linkDoc} target="_blank">Ver documento</a> 
+          </div>))}
       </div>
     </>
   )
