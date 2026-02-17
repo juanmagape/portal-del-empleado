@@ -13,7 +13,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const res = await fetch("/users.json");
+      const res = await fetch("/usersAuth.json");
       const users = await res.json();
 
       const user = users.find(
