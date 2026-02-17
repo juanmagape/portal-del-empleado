@@ -5,7 +5,18 @@
     "surname": "Apellido 1",
     "position": "Programador",
     "email": "admin@test.com",
-    "password": "1234"
+    "password": "1234", 
+
+    "training": "CFGS",
+    "training_name": "Desarrollo de Aplicaciones Web",
+    "training_institution": "Stucom",
+    "training_date": "2023-2025",
+
+    "personal_address_street": "Carrer de Mallorca",
+    "personal_address_number": "214",
+    "personal_address_apartment": "3º 2ª",
+    "personal_email": "juan@test.com",
+    "persnoal_numtelf": "612345678"
   },
   {
     "id": 2,
@@ -13,6 +24,17 @@
     "surname": "Apellido 2",
     "position": "Tester",
     "email": "user@test.com",
-    "password": "abcd"
+    "password": "abcd",
+    
+    "training": "Grado Universitario",
+    "training_name": "Ingeniería Informática",
+    "training_institution": "Universitat Politècnica de Catalunya",
+    "training_date": "2020-2024",
+
+    "personal_address_street": "Avenida de la Constitución",
+    "personal_address_number": "45",
+    "personal_address_apartment": "1º B",
+    "personal_email": "laura@text.com",
+    "persnoal_numtelf": "678912345"
   }
 ]

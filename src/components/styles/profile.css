@@ -1,0 +1,24 @@
+.bienv {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.datosUser {
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.datosUser h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.nombreCompleto {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
