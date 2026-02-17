@@ -16,7 +16,7 @@
     "personal_address_number": "214",
     "personal_address_apartment": "3º 2ª",
     "personal_email": "juan@test.com",
-    "persnoal_numtelf": "612345678"
+    "personal_numtelf": "612345678"
   },
   {
     "id": 2,
@@ -35,6 +35,6 @@
     "personal_address_number": "45",
     "personal_address_apartment": "1º B",
     "personal_email": "laura@text.com",
-    "persnoal_numtelf": "678912345"
+    "personal_numtelf": "678912345"
   }
 ]
