@@ -31,6 +31,7 @@ function Projects() {
   return (
     <>
       <h1>Proyectos</h1>
+      <div className='containers'>
 
       <DragDropProvider
         onDragEnd={(event) => {
@@ -56,6 +57,8 @@ function Projects() {
         </Droppable>
 
       </DragDropProvider>
+    </div>
+
     </>
   );
 }
