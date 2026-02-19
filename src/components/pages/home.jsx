@@ -1,5 +1,6 @@
 import { NavLink, useState, useEffect } from 'react'
 import '../styles/home.css'
+import '../../App.css'
 
 function Home() {
   const [anuncios, setAnuncios] = useState([]);
@@ -21,7 +22,7 @@ function Home() {
 
   return (
     <div>
-      <h1>Tablón de anuncios</h1>
+      <h1 className='title'>Tablón de anuncios</h1>
       <div className="container-anuncios">
         {anuncios.map((anuncio, index) => (
           <div key={index} className=" anuncios">

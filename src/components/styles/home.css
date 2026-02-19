@@ -1,11 +1,10 @@
 .anuncios {
     display: flex;
     height: 300px; 
-    width: 700px;
+    width: 800px;
     flex-direction: column;
     border-radius: 20px;
     border: 1px solid #ccc;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
     padding: 20px;
 }
 

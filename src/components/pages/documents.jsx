@@ -20,7 +20,7 @@ function Documents() {
 
   return (
     <>
-
+      <h1 className='title'>Documentos</h1>
       <div className="documentos-container">
         <h1>Nóminas</h1>
 

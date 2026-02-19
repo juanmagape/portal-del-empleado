@@ -3,6 +3,7 @@ import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
 import 'moment/locale/es'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
+import '../../App.css'
 
 moment.locale('es');
 const localizer = momentLocalizer(moment)
@@ -36,11 +37,9 @@ function Absences() {
   };
 
   return (
+      <>
+      <h1 className='title'>Gestión de Ausencias</h1>
     <div style={{ height: '85vh', padding: '20px' }}>
-      <h1>Gestión de Ausencias</h1>
-      <p style={{fontSize: '0.9em', color: 'gray', marginBottom: '20px'}}>
-         * Haz clic o arrastra en los días para añadir ausencia.
-      </p>
       
       <Calendar
         localizer={localizer}
@@ -62,6 +61,7 @@ function Absences() {
         onNavigate={onNavigate} 
       />
     </div>
+    </>
   )
 }
 

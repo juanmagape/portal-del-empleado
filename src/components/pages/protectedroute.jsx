@@ -1,5 +1,4 @@
 import { Navigate, Outlet } from "react-router-dom";
-import Nav from '../nav'
 import SideBar from '../sidebar'
 
 const isAuthenticated = () =>
@@ -12,7 +11,6 @@ function ProtectedRoute() {
 
   return (
     <>
-        <Nav />
         <SideBar />
       <Outlet />
     </>

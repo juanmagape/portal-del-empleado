@@ -11,24 +11,31 @@ nav {
   left: 0;
   bottom: 0;
   width: 200px;
-  background-color: #f8f9fa; 
+  background-color: white; 
   padding: 1em;
   display: flex;
   flex-direction: column;
   z-index: 1000; 
-  border-right: 1px solid #ddd;
+  border-right: 1px solid #f3f3f3;
 }
 
-nav a {
+nav a, nav h1 {
   text-decoration: none;
   color: black;
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px 0; 
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  transition: background-color 0.2s ease;
 }
 
-nav a .big-icon {
+nav h1 {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+nav a .big-icon, nav h1 .big-icon {
   font-size: 24px;
 }
 
@@ -39,4 +46,10 @@ nav a:last-child {
 body {
   padding-left: 220px; 
   padding-top: 20px;
+}
+
+.nav-item.activo {
+  background-color: #eeeeee;
+  border-radius: 8px;
+
 }

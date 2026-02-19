@@ -1,8 +1,8 @@
 .droppable {
-    width: 300px;
+    width: 500px;
     height: 300; 
-    border: 1px solid black;
-    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
     height: 700px;
 }
 
@@ -10,5 +10,4 @@
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
-    
 }

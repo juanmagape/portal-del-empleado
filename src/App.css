@@ -1,14 +1,21 @@
 @import "tailwindcss";
 
+.title {
+    margin-left: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
 .documentos-container h1 {
     font-size: 30px;
     margin-bottom: 20px;
 }
 
 .documentos-container {
-    margin: 30px;
+    margin: 20px;
     border: 1px solid #ccc;
-    box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
     padding: 20px;
     border-radius: 20px;
     width: 1600px;

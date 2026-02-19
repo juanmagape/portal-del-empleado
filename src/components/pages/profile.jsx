@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import users from '../../data/users.json';
 import '../styles/profile.css'
+import '../../App.css'
 
 function Profile() {
 
@@ -28,8 +29,7 @@ function Profile() {
 
   return (
     <>
-      <h1>Perfil</h1>
-      <h1 className="bienv">Hola, {profile.name}</h1>
+      <h1 className="title">Perfil</h1>
 
       <div className="datosUser">
         <h3>Datos de usuario</h3>
