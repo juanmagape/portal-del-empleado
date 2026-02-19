@@ -1,16 +1,28 @@
-# React + Vite
+# Employee Portal (Portal del Empleado)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+⚠️ **WORK IN PROGRESS** ⚠️
+*This project is currently under active development. Some features and pages might be incomplete or act as placeholders.*
 
-Currently, two official plugins are available:
+## About the Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The Employee Portal is a modern, responsive web application built with React. It serves as a centralized internal tool designed to help employees manage their daily work life, personal information, and company resources efficiently.
 
-## React Compiler
+## Features & Contents
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Currently, the application includes the following modules:
 
-## Expanding the ESLint configuration
+* **Authentication Flow**: A secure login and logout system (currently mocked with local JSON data) to protect the portal's routes.
+* **Announcements Board (Home)**: A main dashboard displaying the latest company news, updates, and announcements.
+* **User Profile**: A detailed view of the logged-in employee, showing personal information, job position, and training/educational background.
+* **Absences Calendar**: An interactive calendar module where employees can manage and view their vacations and absence days.
+* **Document Management**: A categorized document center providing access to important files such as payrolls (nóminas), contracts, and general company documents.
+* **Projects Kanban Board**: A drag-and-drop task management interface divided into columns (To-Do, In Progress, Done) to easily track project workflows.
+* **Surveys & Analytics** (Pending): Placeholder sections planned for future updates to handle employee feedback and internal statistics.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Built With
+
+* **Frontend**: React + Vite
+* **Routing**: React Router
+* **Styling**: Tailwind CSS, Headless UI & Native CSS
+* **Calendar**: React Big Calendar + Moment.js
+* **Drag & Drop**: @dnd-kit/react
