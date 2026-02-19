@@ -1,66 +1,89 @@
 import {useDraggable} from '@dnd-kit/react';
 import {DragDropProvider} from '@dnd-kit/react';
 import {useDroppable} from '@dnd-kit/react';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import '../styles/projects.css'
+
+const columns = ["todo", "in-progress", "done"];
+
+function Draggable({ id, title }) {
+  const { ref } = useDraggable({ id });
+
+  return (
+    <div ref={ref} className="draggable">
+      {title}
+    </div>
+  );
+}
+
+function Droppable({ id, children }) {
+  const { ref } = useDroppable({ id });
+
+  return (
+    <div ref={ref} className="droppable">
+      <h3>{id}</h3>
+      {children}
+    </div>
+  );
+}
 
 function Projects() {
 
-  const [parent, setParent] = useState(null);
+const [items, setItems] = useState([]);
+const [loading, setLoading] = useState(true);
+const [error, setError] = useState(null);
 
-  function Droppable({ id, children }) {
-    const { ref } = useDroppable({ id });
+  useEffect(() => {
+    const fetchTasks = async () => {
+      try {
+        const response = await fetch('/project.json');
+        const data = await response.json();
+        setItems(data);
+      } catch (err) {
+        setError('Error al cargar las tareas');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    return (
-      <div ref={ref} className="droppable">
-        {children}
-      </div>
-    );
-  }
+    fetchTasks();
+  }, []);
 
-  function Draggable() {
-    const { ref } = useDraggable({ id: "draggable" });
+  if (loading) return <p>Cargando...</p>;
+  if (error) return <p>{error}</p>;
 
-    return (
-      <div ref={ref} className="draggable">
-        Draggable
-      </div>
-    );
-  }
-
-  return (
-    <>
-      <h1>Proyectos</h1>
-      <div className='containers'>
-
+return (
+  <>
+    <h1>Proyectos</h1>
+    <div className="containers">
       <DragDropProvider
         onDragEnd={(event) => {
           if (event.canceled) return;
-
-          const { target } = event.operation;
-          setParent(target?.id || null);
+          const { source, target } = event.operation;
+          setItems((prev) =>
+            prev.map((item) =>
+              item.id === source.id
+                ? { ...item, column: target?.id || null }
+                : item
+            )
+          );
         }}
       >
-
-        {parent === null && <Draggable />}
-
-        <Droppable id="todo">
-          {parent === "todo" && <Draggable />}
-        </Droppable>
-
-        <Droppable id="in-progress">
-          {parent === "in-progress" && <Draggable />}
-        </Droppable>
-
-        <Droppable id="done">
-          {parent === "done" && <Draggable />}
-        </Droppable>
+        {columns.map((col) => (
+          <Droppable key={col} id={col}>
+            {items
+              .filter((item) => item.column === col)
+              .map((item) => (
+                <Draggable key={item.id} id={item.id} title={item.title} />
+              ))}
+          </Droppable>
+        ))}
 
       </DragDropProvider>
     </div>
-
-    </>
-  );
+  </>
+);
 }
 
 export default Projects

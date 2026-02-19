@@ -1,0 +1,5 @@
+[
+  { "id": "task-1", "title": "Diseñar UI", "column": "todo" },
+  { "id": "task-2", "title": "Crear API", "column": "todo" },
+  { "id": "task-3", "title": "Testing", "column": "todo" }
+]
