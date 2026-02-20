@@ -16,7 +16,9 @@
     "personal_address_number": "214",
     "personal_address_apartment": "3º 2ª",
     "personal_email": "juan@test.com",
-    "personal_numtelf": "612345678"
+    "personal_numtelf": "612345678",
+
+    "depart": "IT"
   },
   {
     "id": 2,
@@ -35,6 +37,8 @@
     "personal_address_number": "45",
     "personal_address_apartment": "1º B",
     "personal_email": "laura@text.com",
-    "personal_numtelf": "678912345"
+    "personal_numtelf": "678912345",
+
+    "depart": "RRHH"
   }
 ]
