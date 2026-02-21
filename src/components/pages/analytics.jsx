@@ -1,10 +1,25 @@
 import { useEffect, useState } from 'react'
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Doughnut } from "react-chartjs-2";
+import { 
+  Chart as ChartJS, 
+  ArcElement, 
+  Tooltip, 
+  Legend, 
+  CategoryScale, 
+  LinearScale, 
+  BarElement 
+} from "chart.js";
+import { Doughnut, Bar } from "react-chartjs-2";
 import users from '../../data/users.json' 
+import '../../App.css'
 
-ChartJS.register(ArcElement, Tooltip, Legend);
-
+ChartJS.register(
+  ArcElement, 
+  Tooltip, 
+  Legend, 
+  CategoryScale, 
+  LinearScale, 
+  BarElement
+);
 
 function Analytics() {
   const [empleados, setEmpleados] = useState([]);
@@ -31,6 +46,24 @@ function Analytics() {
     return users.filter(e => e.depart === dep).length
   })
 
+  let añosTotales = 0;
+  let añoActual = new Date().getFullYear();
+
+  users.forEach(e => {
+    añosTotales += (añoActual - e.altaEmpresa)
+  })
+
+  
+  let antiguedadMedia = 0;
+
+  if (añosTotales > 0) {
+     antiguedadMedia = añosTotales / users.length;
+  }
+
+  const añosContratacion = users.map(e => e.altaEmpresa);
+  const añosUnicos = [...new Set(añosContratacion)].sort();
+  const empleadosPorAño = añosUnicos.map(año => users.filter(e => e.altaEmpresa === año).length);
+
 
   const dataChart = {
     labels: departamentosUnicos,
@@ -38,20 +71,56 @@ function Analytics() {
       {
         label: "Empleados",
         data: empleadosPorDepart,
-        backgroundColor: ["#f87171", "#4ade80"],
+        backgroundColor: ["#00cbe6", "#4a85de"],
         borderWidth: 1
       }
     ]
   }
 
+  const optionsDoughnut = {
+    cutout: "70%"
+  }
+
+  const dataBar = {
+    labels: añosUnicos,
+    datasets: [{
+      label: "Nuevas Contrataciones",
+      data: empleadosPorAño,
+      backgroundColor: "#4a85de",
+    }]
+  };
+
   return (
     <>
-      <h1>Analiticas</h1>
+      <h1 className='title'>Analiticas</h1>
+      <div className='containerAnalytics'>
+        <div title='Cantidad de empleados en la empresa' className='cardContainer'>
+          <i className='lni lni-user-multiple-4'></i>
+          <p>{empleados.length}</p>
+        </div>
 
-      Cantidad de empleados: 
-      {empleados.length}
+        <div title='Cantidad de departamentos en la empresa' className='cardContainer'>
+          <i className='lni lni-buildings-1'></i>
+          <p>{departamentosUnicos.length}</p>
+        </div>
 
-      <Doughnut data={dataChart} />
+        <div title='Antiguedad media' className='cardContainer'>
+          <i className='lni lni-stopwatch'></i>
+          <p>{antiguedadMedia}</p>
+        </div>
+      </div>
+
+
+      <div className='donut'>
+        <h3>Empleados por departamento</h3>
+        <Doughnut data={dataChart} options={optionsDoughnut}/>
+      </div>
+      
+      <div className='bar' style={{ width: '40%' }}>
+          <h3>Contrataciones por Año</h3>
+          <Bar data={dataBar} />
+      </div>
+      
     </>
   )
 }
