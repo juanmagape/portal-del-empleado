@@ -94,23 +94,34 @@ function Analytics() {
     <>
       <h1 className='title'>Analiticas</h1>
       <div className='containerAnalytics'>
-        <div title='Cantidad de empleados en la empresa' className='cardContainer'>
-          <i className='lni lni-user-multiple-4'></i>
-          <p>{empleados.length}</p>
+        
+        <div className='cardContainer'>
+          <i className='lni lni-user-multiple-4 cardIcon'></i>
+          <div className='cardInfo'>
+            <p className='cardValue'>{empleados.length}</p>
+            <p className='cardLabel'>Empleados Totales</p>
+          </div>
         </div>
 
-        <div title='Cantidad de departamentos en la empresa' className='cardContainer'>
-          <i className='lni lni-buildings-1'></i>
-          <p>{departamentosUnicos.length}</p>
+        <div className='cardContainer'>
+          <i className='lni lni-buildings-1 cardIcon'></i>
+          <div className='cardInfo'>
+            <p className='cardValue'>{departamentosUnicos.length}</p>
+            <p className='cardLabel'>Departamentos</p>
+          </div>
         </div>
 
-        <div title='Antiguedad media' className='cardContainer'>
-          <i className='lni lni-stopwatch'></i>
-          <p>{antiguedadMedia}</p>
+        <div className='cardContainer'>
+          <i className='lni lni-stopwatch cardIcon'></i>
+          <div className='cardInfo'>
+            <p className='cardValue'>{antiguedadMedia} <span className='unit'>años</span></p>
+            <p className='cardLabel'>Antigüedad Media</p>
+          </div>
         </div>
+
       </div>
 
-
+    <div className='charts'>
       <div className='donut'>
         <h3>Empleados por departamento</h3>
         <Doughnut data={dataChart} options={optionsDoughnut}/>
@@ -120,6 +131,8 @@ function Analytics() {
           <h3>Contrataciones por Año</h3>
           <Bar data={dataBar} />
       </div>
+    </div>
+
       
     </>
   )
