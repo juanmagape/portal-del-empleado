@@ -1,8 +1,17 @@
 import { useState, useEffect } from 'react'
+import { Document, Page } from "react-pdf"
+import "react-pdf/dist/Page/AnnotationLayer.css"
+import "react-pdf/dist/Page/TextLayer.css"
 import '../../App.css'
+import { pdfjs } from "react-pdf"
+import workerSrc from "pdfjs-dist/build/pdf.worker.min?url"
+
+pdfjs.GlobalWorkerOptions.workerSrc = workerSrc
 
 function Documents() {
   const [documentos, setDocumentos ] = useState([])
+  const [selectedPdf, setSelectedPdf] = useState(null)
+  const [numPages, setNumPages] = useState(null)
 
   useEffect(() => {
     async function fetchDocuments() {
@@ -41,9 +50,9 @@ function Documents() {
                   <td>{doc.tituloDoc}</td>
                   <td>{doc.descDoc}</td>
                   <td>
-                    <a href={doc.linkDoc} target="_blank" rel="noopener noreferrer">
+                    <button onClick={() => setSelectedPdf(doc.linkDoc)}>
                       Ver documento
-                    </a>
+                    </button>
                   </td>
                 </tr>
               ))}
@@ -71,9 +80,9 @@ function Documents() {
                   <td>{doc.tituloDoc}</td>
                   <td>{doc.descDoc}</td>
                   <td>
-                    <a href={doc.linkDoc} target="_blank" rel="noopener noreferrer">
+                    <button onClick={() => setSelectedPdf(doc.linkDoc)}>
                       Ver documento
-                    </a>
+                    </button>
                   </td>
                 </tr>
               ))}
@@ -100,15 +109,41 @@ function Documents() {
                   <td>{doc.tituloDoc}</td>
                   <td>{doc.descDoc}</td>
                   <td>
-                    <a href={doc.linkDoc} target="_blank" rel="noopener noreferrer">
+                    <button onClick={() => setSelectedPdf(doc.linkDoc)}>
                       Ver documento
-                    </a>
+                    </button> 
                   </td>
                 </tr>
               ))}
           </tbody>
         </table>
       </div>
+
+      {selectedPdf && (
+        <div className="pdf-modal">
+          <div className="pdf-content">
+            <button 
+              className="close-btn"
+              onClick={() => setSelectedPdf(null)}
+            >
+              ✕
+            </button>
+
+            <Document
+              file={selectedPdf}
+              onLoadSuccess={({ numPages }) => setNumPages(numPages)}
+            >
+              {Array.from(new Array(numPages), (el, index) => (
+                <Page
+                  key={`page_${index + 1}`}
+                  pageNumber={index + 1}
+                  width={700}
+                />
+              ))}
+            </Document>
+          </div>
+        </div>
+      )}
     </>
   )
 }

@@ -112,3 +112,46 @@
     justify-content: center;
     text-align: center;
 }
+
+.pdf-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.pdf-content {
+  position: relative;
+  background: white;
+  padding: 60px 30px 30px 30px; /* MÁS espacio arriba */
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 10px;
+  width: 60%;
+  max-width: 900px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  z-index: 2000; /* MÁS alto que el PDF */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
