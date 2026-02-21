@@ -22,19 +22,9 @@
     height: auto;
 }
 
-.documentos-container a {
-    display: inline-block;
-    margin-right: 20px;
-    margin-bottom: 10px;
-    padding: 10px 20px;
-    background-color: #292929;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.documentos-container a:hover {
-    background-color: #555;
+.documentos-container button {
+  width: 300px;
+  margin: 0 auto;
 }
 
 .documentos-container th, .documentos-container td {
@@ -129,7 +119,7 @@
 .pdf-content {
   position: relative;
   background: white;
-  padding: 60px 30px 30px 30px; /* MÁS espacio arriba */
+  padding: 60px 30px 30px 30px;
   max-height: 90vh;
   overflow-y: auto;
   border-radius: 10px;
@@ -146,11 +136,11 @@
   background: #000;
   color: #fff;
   border: none;
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
-  z-index: 2000; /* MÁS alto que el PDF */
+  z-index: 2000;
   display: flex;
   align-items: center;
   justify-content: center;
