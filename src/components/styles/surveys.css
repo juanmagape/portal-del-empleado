@@ -19,7 +19,7 @@
 
 /* ── Overlay de fondo ── */
 .popup-overlay[data-popup="modal"] {
-    animation: fadeOverlay 0.8s ease forwards;
+    animation: fadeOverlay 0.7s ease forwards;
 }
 
 @keyframes fadeOverlay {
@@ -29,7 +29,7 @@
 
 /* ── Entrada del modal ── */
 .popup-content[data-popup="modal"] {
-    animation: slideInModal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: slideInModal 0.7s cubic-bezier(0.16, 0, 0.3, 1) forwards;
 }
 
 @keyframes slideInModal {

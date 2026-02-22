@@ -9,30 +9,37 @@ import workerSrc from "pdfjs-dist/build/pdf.worker.min?url"
 pdfjs.GlobalWorkerOptions.workerSrc = workerSrc
 
 function Documents() {
-  const [documentos, setDocumentos ] = useState([])
+  const [documentos, setDocumentos] = useState([])
   const [selectedPdf, setSelectedPdf] = useState(null)
   const [numPages, setNumPages] = useState(null)
+  const [isClosing, setIsClosing] = useState(false)
 
   useEffect(() => {
     async function fetchDocuments() {
-    try {
-      const res = await fetch('/documentos.json');
-      const data = await res.json();
-      setDocumentos(data);
-    } catch (error) {
-        console.error('Error fetching documents:', error) 
+      try {
+        const res = await fetch('/documentos.json');
+        const data = await res.json();
+        setDocumentos(data);
+      } catch (error) {
+        console.error('Error fetching documents:', error)
       }
     }
     fetchDocuments();
-    },[])
+  }, [])
 
+  const handleClosePdf = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setSelectedPdf(null);
+      setIsClosing(false);
+    }, 700);
+  };
 
   return (
     <>
       <h1 className='title'>Documentos</h1>
       <div className="documentos-container">
         <h1>Nóminas</h1>
-
         <table>
           <thead>
             <tr>
@@ -41,7 +48,6 @@ function Documents() {
               <th className="row">Enlace</th>
             </tr>
           </thead>
-
           <tbody>
             {documentos
               .filter(doc => doc.tipoDoc === 'nominas')
@@ -62,7 +68,6 @@ function Documents() {
 
       <div className="documentos-container">
         <h1>Contratos</h1>
-
         <table>
           <thead>
             <tr>
@@ -71,7 +76,6 @@ function Documents() {
               <th className="row">Enlace</th>
             </tr>
           </thead>
-
           <tbody>
             {documentos
               .filter(doc => doc.tipoDoc === 'contratos')
@@ -91,7 +95,7 @@ function Documents() {
       </div>
 
       <div className="documentos-container">
-      <h1>Documentos</h1>
+        <h1>Documentos</h1>
         <table>
           <thead>
             <tr>
@@ -100,7 +104,6 @@ function Documents() {
               <th className="row">Enlace</th>
             </tr>
           </thead>
-
           <tbody>
             {documentos
               .filter(doc => doc.tipoDoc === 'docs')
@@ -111,7 +114,7 @@ function Documents() {
                   <td>
                     <button onClick={() => setSelectedPdf(doc.linkDoc)}>
                       Ver documento
-                    </button> 
+                    </button>
                   </td>
                 </tr>
               ))}
@@ -120,11 +123,11 @@ function Documents() {
       </div>
 
       {selectedPdf && (
-        <div className="pdf-modal">
-          <div className="pdf-content">
-            <button 
+        <div className={`pdf-modal ${isClosing ? 'exiting' : ''}`}>
+          <div className={`pdf-content ${isClosing ? 'exiting' : ''}`}>
+            <button
               className="close-btn"
-              onClick={() => setSelectedPdf(null)}
+              onClick={handleClosePdf}
             >
               ✕
             </button>
