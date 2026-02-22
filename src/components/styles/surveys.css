@@ -1,33 +1,70 @@
 .modal {
-  font-size: 12px;
+    padding: 20px;
+    border-radius: 20px;
 }
-.modal > .header {
-  width: 100%;
-  border-bottom: 1px solid gray;
-  font-size: 18px;
-  text-align: center;
-  padding: 5px;
+
+.quest {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
-.modal > .content {
-  width: 100%;
-  padding: 10px 5px;
+
+.popup-overlay {
+    z-index: 2000 !important;
 }
-.modal > .actions {
-  width: 100%;
-  padding: 10px 5px;
-  margin: auto;
-  text-align: center;
+
+.popup-content {
+    z-index: 2001 !important;
 }
-.modal > .close {
-  cursor: pointer;
-  position: absolute;
-  display: block;
-  padding: 2px 5px;
-  line-height: 20px;
-  right: -10px;
-  top: -10px;
-  font-size: 24px;
-  background: #ffffff;
-  border-radius: 18px;
-  border: 1px solid #cfcece;
+
+/* ── Overlay de fondo ── */
+.popup-overlay[data-popup="modal"] {
+    animation: fadeOverlay 0.8s ease forwards;
+}
+
+@keyframes fadeOverlay {
+    from { background-color: rgba(0, 0, 0, 0); }
+    to   { background-color: rgba(0, 0, 0, 0.5); }
+}
+
+/* ── Entrada del modal ── */
+.popup-content[data-popup="modal"] {
+    animation: slideInModal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInModal {
+    from {
+        opacity: 0;
+        transform: scale(0.85) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* ── Salida del modal (contenedor real de la librería) ── */
+.popup-content.exiting {
+    animation: slideOutModal 0.7s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+@keyframes slideOutModal {
+    from {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.85) translateY(-20px);
+    }
+}
+
+/* ── Salida del overlay de fondo ── */
+.popup-overlay.exiting {
+    animation: fadeOutOverlay 0.7s ease forwards;
+}
+
+@keyframes fadeOutOverlay {
+    from { background-color: rgba(0, 0, 0, 0.5); }
+    to   { background-color: rgba(0, 0, 0, 0); }
 }
