@@ -11,8 +11,10 @@ function ProtectedRoute() {
 
   return (
     <>
-        <SideBar />
-      <Outlet />
+      <SideBar />
+      <main className="app-content">
+        <Outlet />
+      </main>
     </>
   );
 }

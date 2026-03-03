@@ -44,7 +44,11 @@ nav a:last-child {
 }
 
 body {
-  padding-left: 220px; 
+  padding: 0;
+}
+
+.app-content {
+  padding-left: 220px;
   padding-top: 20px;
 }
 
