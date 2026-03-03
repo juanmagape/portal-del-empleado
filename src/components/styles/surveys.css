@@ -68,3 +68,44 @@
     from { background-color: rgba(0, 0, 0, 0.5); }
     to   { background-color: rgba(0, 0, 0, 0); }
 }
+
+.encuestas-container {
+    margin: 20px;
+    width: 1600px;
+}
+
+.encuestas-realizadas {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 20px;
+    height: auto;
+}
+
+.encuestas-disponibles {
+    margin-top: 40px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 20px;
+    height: auto;
+}
+
+.button {
+    background-color: #383838;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 20px;
+
+}
+
+.titleEncuestas {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}

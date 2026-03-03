@@ -19,11 +19,26 @@ function Surveys() {
     }, 700);
   };
 
+  let encuestasRealizadas = null;
+
   return (
     <>
-      <h1>Encuestas</h1>
+      <h1 className='title'>Encuestas</h1>
+
+      <div className='encuestas-container'>
+        <div className='encuestas-realizadas'>
+      {encuestasRealizadas === null || encuestasRealizadas?.length === 0 ? (
+        <>
+          <h1 className='titleEncuestas'>Encuestas realizadas</h1>
+          <p>No hay encuestas realizadas</p>
+        </>
+      ) : null}
+      </div>
+
+      <div className='encuestas-disponibles'>
+      <h1 className='titleEncuestas'>Encuestas disponibles</h1>
       <Popup
-        trigger={<button className="button"> Open Modal </button>}
+        trigger={<button className="button"> Abrir encuesta </button>}
         modal
         nested
         contentStyle={{
@@ -64,7 +79,6 @@ function Surveys() {
                 <button
                   className="button"
                   onClick={() => {
-                    console.log('modal closed');
                     handleClose(close);
                   }}
                 >
@@ -72,9 +86,12 @@ function Surveys() {
                 </button>
               </div>
             </div>
+            
           </>
         )}
       </Popup>
+      </div>
+      </div>
     </>
   );
 }
