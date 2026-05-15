@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { Routes, Route} from 'react-router-dom'
 import './App.css'
 
+import Layout from './components/sidebar'  // ← añade este import
+
 import Home from './components/pages/home'
 import Perfil from './components/pages/profile'
 import Ausencias from './components/pages/absences'
@@ -14,22 +16,23 @@ import ProtectedRoute from './components/pages/protectedroute'
 import Logout from './components/pages/logout'
 
 function App() {
-
   return (
-      <Routes>
-        <Route element={<ProtectedRoute />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/perfil" element={<Perfil />} />
-        <Route path="/ausencias" element={<Ausencias />} />
-        <Route path="/documentos" element={<Documentos />} />
-        <Route path="/proyectos" element={<Proyectos />} />
-        <Route path="/encuestas" element={<Encuestas />} />
-        <Route path="/analiticas" element={<Analiticas />} />
-        <Route path="/logout" element={<Logout />} />
+    <Routes>
+      <Route element={<ProtectedRoute />}>
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/perfil" element={<Perfil />} />
+          <Route path="/ausencias" element={<Ausencias />} />
+          <Route path="/documentos" element={<Documentos />} />
+          <Route path="/proyectos" element={<Proyectos />} />
+          <Route path="/encuestas" element={<Encuestas />} />
+          <Route path="/analiticas" element={<Analiticas />} />
+          <Route path="/logout" element={<Logout />} />
         </Route>
+      </Route>
 
-        <Route path="/login" element={<Login />} />
-      </Routes>
+      <Route path="/login" element={<Login />} />
+    </Routes>
   );
 };
 
